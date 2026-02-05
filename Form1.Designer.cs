@@ -33,6 +33,7 @@
             this.iNICIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adelanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -59,7 +60,8 @@
             this.acercaDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iNICIOToolStripMenuItem,
             this.atrasToolStripMenuItem,
-            this.adelanteToolStripMenuItem});
+            this.adelanteToolStripMenuItem,
+            this.historialToolStripMenuItem});
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.acercaDeToolStripMenuItem.Text = "OPCIONES";
@@ -68,23 +70,30 @@
             // iNICIOToolStripMenuItem
             // 
             this.iNICIOToolStripMenuItem.Name = "iNICIOToolStripMenuItem";
-            this.iNICIOToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.iNICIOToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.iNICIOToolStripMenuItem.Text = "INICIO";
             this.iNICIOToolStripMenuItem.Click += new System.EventHandler(this.iNICIOToolStripMenuItem_Click);
             // 
             // atrasToolStripMenuItem
             // 
             this.atrasToolStripMenuItem.Name = "atrasToolStripMenuItem";
-            this.atrasToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.atrasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.atrasToolStripMenuItem.Text = "Atras";
             this.atrasToolStripMenuItem.Click += new System.EventHandler(this.atrasToolStripMenuItem_Click);
             // 
             // adelanteToolStripMenuItem
             // 
             this.adelanteToolStripMenuItem.Name = "adelanteToolStripMenuItem";
-            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.adelanteToolStripMenuItem.Text = "Adelante";
             this.adelanteToolStripMenuItem.Click += new System.EventHandler(this.adelanteToolStripMenuItem_Click);
+            // 
+            // historialToolStripMenuItem
+            // 
+            this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.historialToolStripMenuItem.Text = "Historial";
+            this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
             // comboBox1
             // 
@@ -173,6 +182,7 @@
         private System.Windows.Forms.ToolStripMenuItem atrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adelanteToolStripMenuItem;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView22;
+        private System.Windows.Forms.ToolStripMenuItem historialToolStripMenuItem;
     }
 }
 
