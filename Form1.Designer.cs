@@ -70,28 +70,28 @@
             // iNICIOToolStripMenuItem
             // 
             this.iNICIOToolStripMenuItem.Name = "iNICIOToolStripMenuItem";
-            this.iNICIOToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iNICIOToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.iNICIOToolStripMenuItem.Text = "INICIO";
             this.iNICIOToolStripMenuItem.Click += new System.EventHandler(this.iNICIOToolStripMenuItem_Click);
             // 
             // atrasToolStripMenuItem
             // 
             this.atrasToolStripMenuItem.Name = "atrasToolStripMenuItem";
-            this.atrasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.atrasToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.atrasToolStripMenuItem.Text = "Atras";
             this.atrasToolStripMenuItem.Click += new System.EventHandler(this.atrasToolStripMenuItem_Click);
             // 
             // adelanteToolStripMenuItem
             // 
             this.adelanteToolStripMenuItem.Name = "adelanteToolStripMenuItem";
-            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.adelanteToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.adelanteToolStripMenuItem.Text = "Adelante";
             this.adelanteToolStripMenuItem.Click += new System.EventHandler(this.adelanteToolStripMenuItem_Click);
             // 
             // historialToolStripMenuItem
             // 
             this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
-            this.historialToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.historialToolStripMenuItem.Text = "Historial";
             this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
@@ -103,7 +103,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "http://www.google.com",
             "http://www.youtube.com"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 30);
+            this.comboBox1.Location = new System.Drawing.Point(25, 31);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(441, 24);
             this.comboBox1.TabIndex = 1;
@@ -128,7 +128,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(25, 72);
+            this.webView21.Location = new System.Drawing.Point(25, 81);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(827, 366);
             this.webView21.TabIndex = 3;

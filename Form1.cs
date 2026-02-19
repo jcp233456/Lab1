@@ -15,6 +15,7 @@ namespace Lab1
 {
     public partial class Form1 : Form
     {
+        List<URL>direccioness=new List<URL>();
         public Form1()
         {
             InitializeComponent();
@@ -27,11 +28,15 @@ namespace Lab1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            URL direccion = new URL();
+            string Url = comboBox1.Text;
+
+
 
             Boolean http = false;
             Boolean www = false;
             Boolean com = false;
-            String Url = comboBox1.Text.ToString();
+            ;
             if((Url.Contains("https://")) || (Url.Contains("http://")))
             {
                 http = true;
@@ -47,29 +52,54 @@ namespace Lab1
 
             if(!http && !com && !www)
             {
-                webView21.Source = (new Uri("https://www.google.com/search?q=+" + Url));
-                Guardar("archivo.txt", comboBox1.Text);
-                comboBox1.Items.Add(Url);
-            }else
+               webView21.Source= (new Uri("https://www.google.com/search?q=" + Url));
+                 
+                direccion.Direccion = Url;
+                direccion.UltimoAcceso = DateTime.Now;
+                direccion.Veces  ++;
+
+                direccioness.Add(direccion);
+
+                Guardar("archivo.txt");
+            }
+            else
             {
                 if (!www)
                 {
                     Url = "www." + Url;
+
                 }
+                    
+
                 if (!http)
                 {
                     Url = "https://" + Url;
+
                 }
+                    
+
                 if (!com)
                 {
                     Url = Url + ".com";
                 }
+                    
+
                 webView21.Source = new Uri(Url);
-                Guardar("archivo.txt", comboBox1.Text);
+
+                
+                direccion.Direccion = Url;
+                direccion.UltimoAcceso = DateTime.Now;
+                direccion.Veces ++;
+
+                direccioness.Add(direccion);
+
+                Guardar("archivo.txt");
 
             }
 
-                
+
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,16 +107,19 @@ namespace Lab1
             CargarHistorial();
 
         }
-        private void Guardar(String fileName, String texto)
+        private void Guardar(String fileName)
         {
-            //Abrir el archivo: Write sobreescribe el archivo, Append agrega los datos al final del archivo
-            FileStream stream = new FileStream(fileName, FileMode.Append, FileAccess.Write);
-            //Crear un objeto para escribir el archivo
+ 
+            FileStream stream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
             StreamWriter writer = new StreamWriter(stream);
-            //Usar el objeto para escribir al archivo, WriteLine, escribe linea por linea
-            //Write escribe todo en la misma linea. En este ejemplo se hará un dato por cada línea
-            writer.WriteLine(texto);
-            //Cerrar el archivo
+            foreach (var direccion in direccioness)
+            {
+                writer.WriteLine(direccion.Direccion);
+                writer.WriteLine(direccion.UltimoAcceso);
+                writer.WriteLine(direccion.Veces);
+            }
+           
+            
             writer.Close();
 
         }
@@ -144,29 +177,31 @@ namespace Lab1
         }
         private void CargarHistorial()
         {
-            string rutaArchivo = Path.Combine(
-                Application.StartupPath,
-                "archivo.txt"
-            );
-
-            comboBox1.Items.Clear();
-
-            if (File.Exists(rutaArchivo))
+            string nombreArchivo = @"archivo.txt";
+            FileStream stream = new FileStream(nombreArchivo, FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(stream);
+            while (reader.Peek() > -1)
             {
-                foreach (string linea in File.ReadAllLines(rutaArchivo))
-                {
-                    if (!string.IsNullOrWhiteSpace(linea))
-                        comboBox1.Items.Add(linea);
-                }
-
-                if (comboBox1.Items.Count > 0)
-                    comboBox1.SelectedIndex = 0;
-            }
-            else
-            {
+                URL direccion = new URL();
+                direccion.Direccion = reader.ReadLine();
                 
-                File.Create(rutaArchivo).Close();
+                direccion.UltimoAcceso = Convert.ToDateTime(reader.ReadLine());
+                direccion.Veces = Convert.ToInt16(reader.ReadLine());
+                direccioness.Add(direccion);
+
             }
+            reader.Close();
+            Mostrar();
+            
         }
+        private void Mostrar()
+        {
+            comboBox1.DataSource = null;
+            comboBox1.ValueMember = "Direccion";
+            comboBox1.DataSource = direccioness;
+
+        }
+
+
     }
 }
