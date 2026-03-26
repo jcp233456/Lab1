@@ -18,6 +18,7 @@ namespace Lab1
         List<URL>direccioness=new List<URL>();
         public Form1()
         {
+            direccioness = new List<URL>();
             InitializeComponent();
         }
 
@@ -59,8 +60,9 @@ namespace Lab1
                 direccion.Veces  ++;
 
                 direccioness.Add(direccion);
-
-                Guardar("archivo.txt");
+                Persistencia persistencia = new Persistencia();
+                persistencia.GuardarJson(direccioness);
+                //Guardar("archivo.txt");
             }
             else
             {
@@ -92,8 +94,12 @@ namespace Lab1
                 direccion.Veces ++;
 
                 direccioness.Add(direccion);
-
-                Guardar("archivo.txt");
+                Persistencia persistencia = new Persistencia();
+                    
+                //Guardar("archivo.txt");
+                persistencia.GuardarJson(direccioness);
+                
+                
 
             }
 
@@ -104,7 +110,9 @@ namespace Lab1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CargarHistorial();
+            //CargarHistorial();
+            Persistencia persistencia = new Persistencia();
+            direccioness = persistencia.leerJson();
 
         }
         private void Guardar(String fileName)
